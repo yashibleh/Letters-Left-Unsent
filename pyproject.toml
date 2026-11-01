@@ -1,0 +1,14 @@
+[project]
+name = "letters-left-unsent"
+version = "1.0.0"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi",
+  "numpy",
+  "onnxruntime",
+  "tokenizers",
+  "psycopg[binary]>=3.1",
+]
+
+[tool.vercel.scripts]
+build = "python build.py"

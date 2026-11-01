@@ -1,0 +1,6 @@
+fastapi
+numpy
+onnxruntime
+tokenizers
+psycopg[binary]>=3.1
+uvicorn[standard]
