@@ -81,42 +81,7 @@ letters-left-unsent/
 └── README.md
 ```
 
-## 🚀 Getting Started
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/letters-left-unsent.git
-cd letters-left-unsent
-```
-
-### 2. Set Up the Python Environment
-
-Create a virtual environment and install the required backend and machine learning dependencies:
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install fastapi uvicorn onnxruntime transformers pydantic
-```
-
-### 3. Start the Backend Server
-
-*(Note: The first run will cache the lightweight ONNX models.)*
-
-```bash
-uvicorn main:app --reload --port 8000
-```
-
-### 4. Launch the Frontend
-
-Open `index.html` via a local development server (such as VS Code Live Server or Python's built-in HTTP server):
-
-```bash
-python -m http.server 3000
-```
-
-Then visit `http://localhost:3000` in your browser, turn your sound on, and step onto the welcoming path.
 
 ## 📜 Philosophy
 
