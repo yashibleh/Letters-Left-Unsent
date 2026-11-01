@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reset password — Letters Left Unsent</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Gloock&family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="signin-page">
+<svg id="scene" class="bg" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+<header class="nav">
+  <a class="logo" href="index.html" aria-label="Letters Left Unsent, start of the story"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="3.2" fill="#e0a93b"/></svg></a>
+  <span class="grow"></span>
+  <a class="pill dark" href="signin.html">Back to sign in</a>
+</header>
+<main class="signin">
+  <h1 class="wordmark small">Letters Left Unsent</h1>
+  <div class="frame" style="margin-top:1.6rem;transform:rotate(-.5deg)">
+    <div class="sheet auth-card">
+      <span class="tape"></span>
+      <form id="ask" novalidate hidden>
+        <h2>Forgot your password?</h2>
+        <p class="lead hand">Tell us your email and we'll send a link to choose a new one.</p>
+        <label>Email <input id="email" type="email" class="field mt-1" autocomplete="email" required></label>
+        <p id="ask-msg" class="msg" role="alert"></p>
+        <button id="ask-btn" class="btn solid" type="submit">Send me a link</button>
+        <p class="small"><a href="signin.html">Back to sign in</a></p>
+      </form>
+      <form id="set" novalidate hidden>
+        <h2>Choose a new password</h2>
+        <p class="lead hand">Something you'll remember, at least 8 characters.</p>
+        <label class="row">New password <input id="pw1" type="password" class="field mt-1" autocomplete="new-password" required>
+          <button type="button" id="peek" class="peek">Show</button></label>
+        <label>Once more <input id="pw2" type="password" class="field mt-1" autocomplete="new-password" required></label>
+        <p id="set-msg" class="msg" role="alert"></p>
+        <a id="again" class="linkish" href="reset.html" hidden>Ask for a new link</a>
+        <button id="set-btn" class="btn solid" type="submit">Save password</button>
+      </form>
+      <div id="done" hidden>
+        <h2 id="done-title"></h2>
+        <p id="done-text" class="sent-text"></p>
+        <p id="done-dev" class="sent-dev" hidden>This site isn't connected to an email service yet, so the link was written to the server log. If you run the site yourself, look in your terminal (or the Logs tab on Vercel) and copy the link into your browser.</p>
+        <a class="btn solid" href="signin.html" style="display:inline-block;text-decoration:none">Go to sign in</a>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="js/scene.js"></script>
+<script src="js/reset.js"></script>
+<script src="js/music.js"></script>
+</body></html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The wall — Letters Left Unsent</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Gloock&family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="plain">
+<header class="nav">
+  <a class="logo" href="index.html" aria-label="Letters Left Unsent, start of the story"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="3.2" fill="#e0a93b"/></svg></a>
+  <span class="links" style="display:contents"><a href="write.html">Write</a><a href="wall.html#wall" data-view="wall">The wall</a><a href="wall.html#mine" data-view="mine">My drawer</a></span>
+  <span class="grow"></span>
+  <span id="who" class="who" hidden></span>
+  <a id="signin" class="pill soft" href="signin.html">Sign in</a>
+  <button id="signout" class="pill soft" hidden>Sign out</button>
+  <a class="pill dark" href="write.html">Write a letter</a>
+</header>
+<main class="wallpage">
+  <h1 id="viewtitle" class="wordmark small">The wall</h1>
+  <p id="viewsub" class="wall-sub hand"></p>
+  <p id="empty" class="empty" hidden></p>
+  <div id="feed" class="grid gap-14 sm:grid-cols-2 lg:grid-cols-3 pt-4"></div>
+</main>
+<nav class="dock" aria-label="Sections"><a class="tab" href="write.html"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 1.5l3 3L5 14l-4 1 1-4z"/></svg>Write</a><a class="tab" href="wall.html#wall" data-view="wall"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z"/></svg>The wall</a><a class="tab" href="wall.html#mine" data-view="mine"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 3h12v4H2zM3 8h10v5H3zM6.5 9.5h3v1.5h-3z"/></svg>My drawer</a></nav>
+<script src="js/common.js"></script>
+<script src="js/wall.js"></script>
+<script src="js/music.js"></script>
+</body></html>

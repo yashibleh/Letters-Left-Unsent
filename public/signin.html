@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — Letters Left Unsent</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Gloock&family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="signin-page">
+<svg id="scene" class="bg" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+<header class="nav">
+  <a class="logo" href="index.html" aria-label="Letters Left Unsent, start of the story"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="3.2" fill="#e0a93b"/></svg></a>
+  <span class="grow"></span>
+  <a class="pill dark" href="app.html">Continue without an account</a>
+</header>
+<main class="signin">
+  <h1 class="wordmark small">Letters Left Unsent</h1>
+  <div class="frame" style="margin-top:1.6rem;transform:rotate(-.5deg)">
+    <form id="auth" class="sheet auth-card" novalidate>
+      <span class="tape"></span>
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" data-mode="login" aria-selected="true">Sign in</button>
+        <button type="button" role="tab" data-mode="register" aria-selected="false">Create a drawer</button>
+      </div>
+      <p id="lead" class="lead hand">Welcome back. Your drawer kept everything safe.</p>
+      <div id="fields">
+        <label id="nameRow" hidden>What should we call you?
+          <input id="name" class="field mt-1" maxlength="40" autocomplete="nickname" placeholder="a first name is plenty"></label>
+        <label>Email
+          <input id="email" type="email" class="field mt-1" autocomplete="email" required></label>
+        <label class="row">Password
+          <input id="password" type="password" class="field mt-1" autocomplete="current-password" required>
+          <button type="button" id="peek" class="peek">Show</button></label>
+        <p id="forgot-row" class="forgot-row"><a href="reset.html">Forgot your password?</a></p>
+        <p id="msg" class="msg" role="alert"></p>
+        <button id="resend" type="button" class="linkish" hidden>Send me a new confirmation link</button>
+        <button id="submit" class="btn solid" type="submit">Sign in</button>
+        <p class="small">You don't need an account to write. An account just keeps your drawer with you on every device. <a href="app.html">Continue without one</a>.</p>
+      </div>
+      <div id="sent" hidden>
+        <p class="sent-text">We sent a confirmation link to <strong id="sent-email"></strong>. Open it to finish making your drawer, then come back and sign in.</p>
+        <p id="sent-dev" class="sent-dev" hidden>This site isn't connected to an email service yet, so the link was written to the server log. If you run the site yourself, look in your terminal (or the Logs tab on Vercel) and copy the link into your browser.</p>
+        <p id="sent-msg" class="msg" role="status"></p>
+        <button id="resend2" type="button" class="btn">Send it again</button>
+      </div>
+    </form>
+  </div>
+</main>
+<script src="js/scene.js"></script>
+<script src="js/signin.js"></script>
+<script src="js/music.js"></script>
+</body></html>
