@@ -1,14 +1,15 @@
 """Two-layer text filter on ONNX Runtime. No PyTorch, no transformers.
 
   Layer 1  toxicity   Xenova/toxic-bert (ONNX, int8, ~111 MB)  - insults, threats, obscenity, hate
-  Layer 2  topics     MoritzLaurer/deberta-v3-xsmall-zeroshot-v1.1-all-33 (ONNX, int8, ~87 MB)
+  Layer 2  topics     MoritzLaurer/xtremedistil-l6-h256-zeroshot-v1.1-all-33 (ONNX, int8, ~13 MB)
                       - zero-shot labels: politics, controversy, gossip
 
-The models (~210 MB) are downloaded by build.py at deploy time, or on first use if missing. Settings (all optional environment variables):
+The models (~125 MB) are downloaded by build.py at deploy time, or on first use if missing. Settings (all optional environment variables):
   TOPIC_THRESHOLD (0.80)  THRESH_POLITICS / THRESH_CONTROVERSY / THRESH_GOSSIP  per-topic override
   TOXIC_THRESHOLD (0.55)  ORT_THREADS (default: your CPU cores, split between the two models)  FILTER_PARALLEL=0 to run them one after the other
   MODELS_DIR
-  ZS_REPO, ZS_ONNX, TOX_REPO, TOX_ONNX  swap models, e.g. ZS_ONNX=onnx/model.onnx for full precision
+  ZS_REPO, ZS_ONNX, TOX_REPO, TOX_ONNX  swap models. More accurate but bigger topic model (needs Vercel "large functions"):
+      ZS_REPO=MoritzLaurer/deberta-v3-xsmall-zeroshot-v1.1-all-33   (adds ~80 MB)
   MOCK_ML=1  keyword stub for quick UI tests
 """
 import config  # noqa: F401  (loads .env)
@@ -19,7 +20,7 @@ import numpy as np
 
 MODELS = Path(os.getenv("MODELS_DIR") or Path(__file__).parent / "models")
 TMP_MODELS = Path(tempfile.gettempdir()) / "letters-models"   # writable fallback when the deployed folder is read-only
-ZS_REPO = os.getenv("ZS_REPO", "MoritzLaurer/deberta-v3-xsmall-zeroshot-v1.1-all-33")
+ZS_REPO = os.getenv("ZS_REPO", "MoritzLaurer/xtremedistil-l6-h256-zeroshot-v1.1-all-33")
 ZS_ONNX = os.getenv("ZS_ONNX", "onnx/model_quantized.onnx")
 TOX_REPO = os.getenv("TOX_REPO", "Xenova/toxic-bert")
 TOX_ONNX = os.getenv("TOX_ONNX", "onnx/model_quantized.onnx")

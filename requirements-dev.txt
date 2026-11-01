@@ -1,0 +1,3 @@
+# for running on your own computer: the deployed packages plus the local web server
+-r requirements.txt
+uvicorn[standard]
